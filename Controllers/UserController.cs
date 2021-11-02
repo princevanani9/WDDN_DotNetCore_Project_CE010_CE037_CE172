@@ -79,9 +79,9 @@ namespace ChattingApplication.Controllers
         }
         public IActionResult Home()
         {
-              //  var model = _userRepository.GetAllUsers();
+                var model = _userRepository.GetAllUsers();
                 ViewBag.user = HttpContext.Session.GetString(SessionName);
-                return View();
+                return View(model);
         }
         public IActionResult Logout()
         {
@@ -90,8 +90,8 @@ namespace ChattingApplication.Controllers
         }
         public IActionResult Profile(int Id)
         {
-           // User model = _userRepository.GetUser(Id);
-            return View();
+           User model = _userRepository.GetUser(Id);
+            return View(model);
         }
     }
 }

@@ -2,6 +2,8 @@
 @{
     ViewData["Title"] = "Home";
 }
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" asp-controller="User" asp-action="Home">ChattingApplication</a>
@@ -20,5 +22,35 @@
         </div>
     </div>
 </nav>
-Hello ,@ViewBag.user
 
+<div class="row">
+
+    <div class="col-3">
+        <div class="scroll-bg">
+            <div class="scroll-div">
+                <div class="scroll-object">
+
+                    @foreach (var user in Model)
+                    {
+                        if (user.Username != ViewBag.user)
+                        {
+                            var photopath = "../images/" + (user.Photopath);
+                            <div class="card" style="width: 18rem;">
+                                <img src="@photopath" class="card-img-top" height="150" width="100" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">@user.Username</h5>
+                                    <a class="btn btn-dark" asp-controller="User" asp-action="Profile" asp-route-id="@user.Id">View Profile</a>
+                                    <a class="btn btn-success">Message</a>
+                                </div>
+                            </div>
+                            <br/>}
+                    }
+                    &nbsp;&nbsp;
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-9">
+        <asp:Image ID="Image1" runat="server" src="..." Style="height:500px;width:700px;margin-left:15%;margin-top:4%;" />
+    </div>

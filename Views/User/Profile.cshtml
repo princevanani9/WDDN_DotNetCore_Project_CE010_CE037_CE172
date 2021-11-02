@@ -1,7 +1,18 @@
 ﻿@model ChattingApplication.Models.User
 @{
     ViewData["Title"] = "View Profile";
-    //var photopath = "../../images/" + (Model.Photopath);
+    var photopath = "../../images/" + (Model.Photopath);
 
 }
-This is Profile page
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <img src="@photopath" class="card-img-top" height="200" width="200" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Username</h5>
+            <h5 class="card-title">@Model.Email</h5>
+            <h5 class="card-title">@Model.Mobile</h5>
+            <a class="btn btn-danger" asp-controller="User" asp-action="Home">Back</a>
+        </div>
+    </div>
+
+</div>

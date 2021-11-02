@@ -1,0 +1,28 @@
+﻿@model ChattingApplication.Models.User
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h4>Login</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="Submit" method="post">
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" name="Username" type="text" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" name="Password" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+            Do You Have account ? <a asp-controller="User" asp-action="Register">Register</a>
+        </form>
+    </div>
+</div>

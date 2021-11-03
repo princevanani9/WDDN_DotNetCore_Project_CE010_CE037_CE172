@@ -93,5 +93,29 @@ namespace ChattingApplication.Controllers
            User model = _userRepository.GetUser(Id);
             return View(model);
         }
+        public IActionResult ViewProfile()
+        {
+            User model = _userRepository.GetUsername(HttpContext.Session.GetString(SessionName));
+            return View(model);
+        }
+
+        public IActionResult UpdateProfile()
+        {
+            User model = _userRepository.GetUsername(HttpContext.Session.GetString(SessionName));
+            return View(model);
+        }
+        public IActionResult SaveChanges(string Username, string Email, string Mobile, string Password, String ConfirmPassword)
+        {
+
+            User usr = _userRepository.GetUsername(HttpContext.Session.GetString(SessionName));
+            usr.Username = Username;
+            usr.Email = Email;
+            usr.Mobile = Mobile;
+            usr.Password = Password;
+            usr.ConfirmPassword = ConfirmPassword;
+            _userRepository.Update(usr);
+            HttpContext.Session.SetString(SessionName, Username);
+            return RedirectToAction("ViewProfile");
+        }
     }
 }

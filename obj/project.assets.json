@@ -6175,19 +6175,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Khushi\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\my_proj\\WDDN_DotNetCore_Project_CE010_CE037_CE172\\ChattingApplication.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\WDDN_DotNetCore_Project_CE010_CE037_CE172\\ChattingApplication.csproj",
       "projectName": "ChattingApplication",
-      "projectPath": "F:\\my_proj\\WDDN_DotNetCore_Project_CE010_CE037_CE172\\ChattingApplication.csproj",
-      "packagesPath": "C:\\Users\\Khushi\\.nuget\\packages\\",
-      "outputPath": "F:\\my_proj\\WDDN_DotNetCore_Project_CE010_CE037_CE172\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\source\\repos\\WDDN_DotNetCore_Project_CE010_CE037_CE172\\ChattingApplication.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\source\\repos\\WDDN_DotNetCore_Project_CE010_CE037_CE172\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Khushi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

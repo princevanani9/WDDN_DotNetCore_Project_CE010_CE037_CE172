@@ -18,6 +18,12 @@ namespace ChattingApplication.Models
             context.SaveChanges();
             return user;
         }
+        User IUserRepository.Update(User user)
+        {
+            context.Users.Update(user);
+            context.SaveChanges();
+            return user;
+        }
         User IUserRepository.hasUser(string Username, string Password)
         {
             return context.Users.FirstOrDefault(u => u.Username == Username && u.Password == Password);
@@ -33,6 +39,10 @@ namespace ChattingApplication.Models
         User IUserRepository.checkUser(string Username)
         {
             return context.Users.FirstOrDefault(u => u.Username == Username);
+        }
+        User IUserRepository.GetUsername(String name)
+        {
+            return context.Users.FirstOrDefault(u => u.Username == name);
         }
     }
 

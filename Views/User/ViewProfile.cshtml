@@ -1,0 +1,19 @@
+﻿@model ChattingApplication.Models.User
+@{
+    ViewData["Title"] = "View Profile";
+    var photopath = "../../images/" + (Model.Photopath);
+
+}
+<div class="container">
+    <div class="card" style="width: 18rem; margin-left: auto; margin-right: auto;">
+        <img src="@photopath" class="card-img-top" height="200" width="200" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Name: @Model.Username</h5>
+            <h5 class="card-title">Email: @Model.Email</h5>
+            <h5 class="card-title">Ph no.: @Model.Mobile</h5>
+            <a class="btn btn-danger" asp-controller="User" asp-action="Home">Back</a>
+            <a class="btn btn-primary" asp-controller="User" asp-action="UpdateProfile">Update Profile</a>
+        </div>
+    </div>
+
+</div>

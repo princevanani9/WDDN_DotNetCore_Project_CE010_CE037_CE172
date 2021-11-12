@@ -30,6 +30,7 @@ namespace ChattingApplication
             });
             services.AddDbContextPool<UserDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("UserDbConnection")));
+           
             services.AddControllersWithViews();
             services.AddScoped<IUserRepository,SqlUserRepository>();
         }

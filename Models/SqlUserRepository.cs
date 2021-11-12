@@ -44,6 +44,22 @@ namespace ChattingApplication.Models
         {
             return context.Users.FirstOrDefault(u => u.Username == name);
         }
+        int IUserRepository.GetId(String name)
+        {
+            return context.Users.FirstOrDefault(u => u.Username == name).Id;
+        }
+        Chat IUserRepository.AddChat(Chat chat)
+        {
+            context.Chats.Add(chat);
+            context.SaveChanges();
+            return chat;
+        }
+        IEnumerable<Chat> IUserRepository.GetAllChat()
+        {
+            return context.Chats;
+        }
+
+
     }
 
 }

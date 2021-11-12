@@ -15,5 +15,8 @@ namespace ChattingApplication.Models
 
         User checkUser(String Username);
         User GetUsername(String name);
+        int GetId(String name);
+        Chat AddChat(Chat chat);
+        IEnumerable<Chat> GetAllChat();
     }
 }

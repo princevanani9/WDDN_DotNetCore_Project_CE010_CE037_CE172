@@ -16,6 +16,7 @@ namespace ChattingApplication.Controllers
         private readonly IUserRepository _userRepository;
         private readonly IWebHostEnvironment hostingEnviroment;
         const string SessionName = "_uname";
+        const string Reciverid = "_rid"; 
         public UserController(IUserRepository userRepository, IWebHostEnvironment hostingEnviroment)
         {
             _userRepository = userRepository;
@@ -116,6 +117,46 @@ namespace ChattingApplication.Controllers
             _userRepository.Update(usr);
             HttpContext.Session.SetString(SessionName, Username);
             return RedirectToAction("ViewProfile");
+        }
+        public IActionResult Message(int Id)
+        {
+            Response.Headers.Add("Refresh", "4");
+            int sId = _userRepository.GetId(HttpContext.Session.GetString(SessionName));
+            var model = _userRepository.GetAllChat();
+            ViewBag.SenderId = sId;
+            ViewBag.ReciverId = Id;
+            HttpContext.Session.SetInt32(Reciverid, Id);
+            return View(model);
+        }
+        public IActionResult Search(string search)
+        {
+           // int ?id = _userRepository.GetId(search);
+                if (_userRepository.checkUser(search)!=null)
+                {
+                 int ? id = _userRepository.GetId(search);
+                return RedirectToAction("Message", new { Id = id });
+                }
+                else
+                {
+                  
+                    return RedirectToAction("Home");
+            }
+           //  return RedirectToAction("Message", new { Id = id });
+         //   return Content(id.ToString());
+        }
+        public IActionResult SaveChat(string message)
+        {
+            int sId = _userRepository.GetId(HttpContext.Session.GetString(SessionName));
+            int rId = (int)HttpContext.Session.GetInt32(Reciverid);
+              Chat newchat = new Chat
+              {
+
+                  Sender = sId,
+                  Reciver=rId,
+                  Message=message
+              };
+            _userRepository.AddChat(newchat);
+            return RedirectToAction("Message", new { Id = rId });
         }
     }
 }

@@ -123,6 +123,8 @@ namespace ChattingApplication.Controllers
             Response.Headers.Add("Refresh", "4");
             int sId = _userRepository.GetId(HttpContext.Session.GetString(SessionName));
             var model = _userRepository.GetAllChat();
+            ViewBag.user = HttpContext.Session.GetString(SessionName);
+            ViewBag.users = _userRepository.GetAllUsers();
             ViewBag.SenderId = sId;
             ViewBag.ReciverId = Id;
             HttpContext.Session.SetInt32(Reciverid, Id);
@@ -141,8 +143,6 @@ namespace ChattingApplication.Controllers
                   
                     return RedirectToAction("Home");
             }
-           //  return RedirectToAction("Message", new { Id = id });
-         //   return Content(id.ToString());
         }
         public IActionResult SaveChat(string message)
         {

@@ -2,27 +2,102 @@
 @{
     ViewData["Title"] = "Login";
 }
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #5f9ea0;
+    }
 
-<h4>Login</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form action="Submit" method="post">
-            <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" name="Username" type="text" />
-                <span asp-validation-for="Username" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" name="Password" type="password" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
+    .user {
+        color: white;
+    }
 
-            <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary" />
-            </div>
-            Do You Have account ? <a asp-controller="User" asp-action="Register">Register</a>
-        </form>
+    .box {
+        width: 350px;
+        padding: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: #191919;
+        text-align: center;
+        height: 530px;
+        border-radius: 15px;
+    }
+
+        .box h1 {
+            color: white;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+    #Username1, #Password1 {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 15px auto;
+        text-align: center;
+        border: 2px solid #3498db;
+        padding: 10px 10px;
+        width: 200px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+    }
+
+        #Username1:focus {
+            width: 280px;
+            border-color: #2ecc71;
+        }
+
+        #Password1:focus {
+            width: 280px;
+            border-color: #2ecc71;
+        }
+
+    #Login1 {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        border: 2px solid #2ecc71;
+        padding: 14px 40px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+        #Login1:hover {
+            background: #2ecc71;
+        }
+    label,p,h4{
+        color: white
+    }
+</style>
+
+
+<form action="Submit" method="post" class="box">
+    <h4>Login</h4>
+    <hr />
+    <div class="form-group">
+        <label asp-for="Username" class="control-label"></label>
+        <input asp-for="Username" class="form-control" name="Username" type="text" id="Username1" />
+        <span asp-validation-for="Username" class="text-danger"></span>
     </div>
-</div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" name="Password" type="password" id="Password1" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Login" class="btn btn-primary" id="Login1" />
+    </div>
+    <p> Do You Have account ? <a asp-controller="User" asp-action="Register">Register</a></p>
+</form>

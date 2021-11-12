@@ -2,60 +2,156 @@
 @{
     ViewData["Title"] = "Register";
 }
-<h4>Register</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form enctype="multipart/form-data" asp-controller="User" asp-action="Register">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" type="email" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" type="password" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConfirmPassword" class="control-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control" type="password" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mobile" class="control-label"></label>
-                <input asp-for="Mobile" class="form-control" />
-                <span asp-validation-for="Mobile" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Photo" class="control-label"></label>
-                <div class="custom-file">
-                    <input asp-for="Photo" class="form-control custom-file-input" />
-                    <label class="custom-file-label">Choosen file...</label>
-                </div>
+<style type="text/css">
 
-                <span asp-validation-for="Photo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Register" class="btn btn-primary" />
-            </div>
-            You Have arleady account ? <a asp-controller="User" asp-action="Login">Login</a>
-        </form>
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #5f9ea0;
+    }
+
+    .box {
+        width: 500px;
+        padding: 40px;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: #191919;
+        text-align: center;
+        height: 1000px;
+        border-radius: 15px;
+    }
+
+    #Username1, #Email1, #Mobile1, #Password1, #Password2 {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 5px auto;
+        text-align: center;
+        border: 2px solid #3498db;
+        padding: 10px 10px;
+        width: 300px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+    }
+
+    .box td {
+        color: white;
+    }
+
+    table {
+        font-weight: bold;
+    }
+
+    .box h1 {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    #Username1:focus {
+        width: 280px;
+        border-color: #2ecc71;
+    }
+
+    #Password2:focus {
+        width: 280px;
+        border-color: #2ecc71;
+    }
+
+    #Password1:focus {
+        width: 280px;
+        border-color: #2ecc71;
+    }
+
+    #Email1:focus {
+        width: 280px;
+        border-color: #2ecc71;
+    }
+
+    #Mobile1:focus {
+        width: 280px;
+        border-color: #2ecc71;
+    }
+
+    #Button1 {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        border: 2px solid #2ecc71;
+        padding: 14px 40px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+        #Button1:hover {
+            background: #2ecc71;
+        }
+       p,label,h4{
+           color:white
+       }
+</style>
+
+<form enctype="multipart/form-data" asp-controller="User" asp-action="Register" class="box">
+    <h4 >Register</h4>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Username" class="control-label"></label>
+        <input asp-for="Username" class="form-control" id="Username1" />
+        <span asp-validation-for="Username" class="text-danger"></span>
     </div>
-</div>
-@section Scripts{ 
-<script>
-    $(document).ready(function () {
-        $('.custom-file-input').on("change", function () {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).next('.custom-file-label').html(fileName);
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" type="email" id="Email1" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" type="password" id="Password1" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword" class="control-label"></label>
+        <input asp-for="ConfirmPassword" class="form-control" type="password" id="Password2" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Mobile" class="control-label"></label>
+        <input asp-for="Mobile" class="form-control" id="Mobile1" />
+        <span asp-validation-for="Mobile" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Photo" class="control-label"></label>
+        <div class="custom-file">
+            <input asp-for="Photo" class="form-control custom-file-input" />
+            <label class="custom-file-label">Choosen file...</label>
+        </div>
+
+        <span asp-validation-for="Photo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-primary" id="Button1" />
+    </div>
+    <p>You Have arleady account ? <a asp-controller="User" asp-action="Login">Login</a></p>
+</form>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
         });
-    });
-</script>
+    </script>
 }

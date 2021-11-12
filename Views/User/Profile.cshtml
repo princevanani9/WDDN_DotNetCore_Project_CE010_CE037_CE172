@@ -4,15 +4,89 @@
     var photopath = "../../images/" + (Model.Photopath);
 
 }
-<div class="container">
-    <div class="card" style="width: 18rem;">
-        <img src="@photopath" class="card-img-top" height="200" width="200" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">@Model.Username</h5>
-            <h5 class="card-title">@Model.Email</h5>
-            <h5 class="card-title">@Model.Mobile</h5>
-            <a class="btn btn-danger" asp-controller="User" asp-action="Home">Back</a>
-        </div>
-    </div>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #5f9ea0;
+    }
 
-</div>
+    .box {
+        width: 600px;
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: #191919;
+        text-align: center;
+        height: 650px;
+        border-radius: 15px;
+    }
+    h5,h4{
+        color:white
+    }
+    #profileuname, #profileemail, #profilemobile {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 5px auto;
+        text-align: center;
+        border: 2px solid #3498db;
+        padding: 10px 10px;
+        width: 300px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+    }
+
+    .box td {
+        color: white;
+    }
+
+    table {
+        font-weight: bold;
+    }
+
+    .box h1 {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    #profileuname:focus {
+        width: 280px;
+        border-color: #2ecc71;
+    }
+
+    #profilepassword:focus {
+        width: 280px;
+        border-color: #2ecc71;
+    }
+
+    #profileemail:focus {
+        width: 280px;
+        border-color: #2ecc71;
+    }
+
+    #profilemobile:focus {
+        width: 280px;
+        border-color: #2ecc71;
+    }
+</style>
+<form class="box">
+    <h4>View Profile</h4>
+    <hr />
+    <div>
+        <img src="@photopath" height="200" width="150" alt="...">
+        <h5 class="card-title">Username</h5>
+        <label id="profileuname">@Model.Username</label>
+        <h5 class="card-title">Email</h5>
+        <label id="profileemail">@Model.Email</label>
+        <h5 class="card-title">Mobile</h5>
+        <label id="profilemobile">@Model.Mobile</label><br/>
+        <a class="btn btn-danger" asp-controller="User" asp-action="Home">Back</a>
+    </div>
+</form>

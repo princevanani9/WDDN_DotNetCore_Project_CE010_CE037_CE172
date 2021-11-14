@@ -158,5 +158,13 @@ namespace ChattingApplication.Controllers
             _userRepository.AddChat(newchat);
             return RedirectToAction("Message", new { Id = rId });
         }
+
+        public IActionResult ClearChat(string message)
+        {
+            int sId = _userRepository.GetId(HttpContext.Session.GetString(SessionName));
+            int rId = (int)HttpContext.Session.GetInt32(Reciverid);
+            _userRepository.Clear(sId, rId);
+            return RedirectToAction("Message", new { Id = rId });
+        }
     }
 }

@@ -58,7 +58,15 @@ namespace ChattingApplication.Models
         {
             return context.Chats;
         }
-
+        void IUserRepository.Clear(int sId, int rId)
+        {
+            var chats = context.Chats.Where(c => (c.Sender == sId && c.Reciver == rId) || (c.Sender == rId && c.Reciver == sId));
+            foreach(Chat c in chats)
+            {
+                context.Chats.Remove(c);
+            }
+            context.SaveChanges();
+        }
 
     }
 

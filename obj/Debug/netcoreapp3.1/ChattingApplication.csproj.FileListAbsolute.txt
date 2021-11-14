@@ -323,3 +323,4 @@ F:\Project\WDDN_DotNetCore_Project_CE010_CE037_CE172\obj\Debug\netcoreapp3.1\Cha
 F:\Project\WDDN_DotNetCore_Project_CE010_CE037_CE172\obj\Debug\netcoreapp3.1\ChattingApplication.pdb
 F:\Project\WDDN_DotNetCore_Project_CE010_CE037_CE172\obj\Debug\netcoreapp3.1\ChattingApplication.genruntimeconfig.cache
 F:\Project\WDDN_DotNetCore_Project_CE010_CE037_CE172\obj\Debug\netcoreapp3.1\Razor\Views\User\Message.cshtml.g.cs
+C:\Users\Admin\source\repos\WDDN_DotNetCore_Project_CE010_CE037_CE172\obj\Debug\netcoreapp3.1\Razor\Views\User\Message.cshtml.g.cs

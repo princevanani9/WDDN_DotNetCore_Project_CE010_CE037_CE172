@@ -18,5 +18,6 @@ namespace ChattingApplication.Models
         int GetId(String name);
         Chat AddChat(Chat chat);
         IEnumerable<Chat> GetAllChat();
+        void Clear(int sId, int rId);
     }
 }
